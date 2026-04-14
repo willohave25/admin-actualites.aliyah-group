@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Actualités - ALIYAH GROUP</title>
+    <title>Admin - ALIYAH GROUP</title>
     <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
     <div class="admin-container">
         <header class="admin-header">
-            <h1>Gestion des Actualités - ALIYAH GROUP</h1>
-            <button id="logoutBtn" class="btn-logout">Déconnexion</button>
+            <div class="admin-header-left">
+                <span class="admin-logo">ALIYAH GROUP</span>
+                <span class="admin-subtitle">Panneau d'administration</span>
+            </div>
+            <button id="logoutBtn" class="btn-logout" style="display:none;">Déconnexion</button>
         </header>
 
         <!-- Formulaire de connexion -->
@@ -29,53 +32,85 @@
         <!-- Panneau Admin -->
         <div id="adminPanel" class="admin-panel" style="display: none;">
 
-            <!-- Formulaire ajout actualité -->
-            <section class="add-actualite">
-                <h2>Ajouter une Actualité</h2>
-                <form id="actualiteForm">
-                    <div class="form-group">
-                        <label for="typeInput">Type</label>
-                        <select id="typeInput">
-                            <option value="Expédition">Expédition</option>
-                            <option value="Arrivage">Arrivage</option>
-                            <option value="Nouveauté">Nouveauté</option>
-                            <option value="Promotion">Promotion</option>
-                            <option value="Info">Information</option>
-                        </select>
+            <!-- Onglets -->
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="actualites">Actualités</button>
+                <button class="tab-btn" data-tab="contacts">
+                    Contacts <span class="badge" id="badge-contacts"></span>
+                </button>
+                <button class="tab-btn" data-tab="devis">
+                    Devis <span class="badge" id="badge-devis"></span>
+                </button>
+            </div>
+
+            <!-- ======== ONGLET ACTUALITÉS ======== -->
+            <div class="tab-content active" id="tab-actualites">
+                <section class="admin-section">
+                    <h2>Publier une Actualité</h2>
+                    <form id="actualiteForm">
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="typeInput">Type</label>
+                                <select id="typeInput">
+                                    <option value="Expédition">Expédition</option>
+                                    <option value="Arrivage">Arrivage</option>
+                                    <option value="Nouveauté">Nouveauté</option>
+                                    <option value="Promotion">Promotion</option>
+                                    <option value="Info">Information</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="titreInput">Titre *</label>
+                            <input type="text" id="titreInput" required placeholder="Ex: Arrivage container Paris-Abidjan">
+                        </div>
+                        <div class="form-group">
+                            <label for="descriptionInput">Description *</label>
+                            <textarea id="descriptionInput" required rows="4" placeholder="Décrivez l'actualité..."></textarea>
+                        </div>
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="photoInput">Photo (optionnel)</label>
+                                <input type="file" id="photoInput" accept="image/*">
+                            </div>
+                            <div class="form-group">
+                                <label for="videoInput">Vidéo (optionnel)</label>
+                                <input type="file" id="videoInput" accept="video/*">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Publier</button>
+                        <p class="status-message" id="statusActualite"></p>
+                    </form>
+                </section>
+
+                <section class="admin-section">
+                    <h2>Actualités Publiées</h2>
+                    <div id="actualitesList"></div>
+                </section>
+            </div>
+
+            <!-- ======== ONGLET CONTACTS ======== -->
+            <div class="tab-content" id="tab-contacts">
+                <section class="admin-section">
+                    <div class="section-toolbar">
+                        <h2>Messages Reçus</h2>
+                        <button class="btn btn-sm" onclick="loadContacts()">Actualiser</button>
                     </div>
+                    <div id="contactsList"></div>
+                </section>
+            </div>
 
-                    <div class="form-group">
-                        <label for="titreInput">Titre *</label>
-                        <input type="text" id="titreInput" required placeholder="Ex: Arrivage container Paris-Abidjan">
+            <!-- ======== ONGLET DEVIS ======== -->
+            <div class="tab-content" id="tab-devis">
+                <section class="admin-section">
+                    <div class="section-toolbar">
+                        <h2>Demandes de Devis</h2>
+                        <button class="btn btn-sm" onclick="loadDevis()">Actualiser</button>
                     </div>
+                    <div id="devisList"></div>
+                </section>
+            </div>
 
-                    <div class="form-group">
-                        <label for="descriptionInput">Description *</label>
-                        <textarea id="descriptionInput" required rows="4" placeholder="Décrivez l'actualité..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="photoInput">Photo (optionnel)</label>
-                        <input type="file" id="photoInput" accept="image/*">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="videoInput">Vidéo (optionnel)</label>
-                        <input type="file" id="videoInput" accept="video/*">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Publier l'actualité</button>
-                </form>
-                <p class="status-message" id="statusMessage"></p>
-            </section>
-
-            <!-- Liste des actualités -->
-            <section class="actualites-list">
-                <h2>Actualités Publiées</h2>
-                <div id="actualitesList">
-                    <!-- Chargement dynamique -->
-                </div>
-            </section>
         </div>
     </div>
 
