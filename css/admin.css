@@ -1,0 +1,242 @@
+/* ========================================
+   ADMIN ACTUALITÉS - ALIYAH GROUP
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+}
+
+.admin-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Admin */
+.admin-header {
+    background: #2d7a3e;
+    color: white;
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h1 {
+    font-size: 1.4rem;
+}
+
+.btn-logout {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    display: none;
+}
+
+.btn-logout:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Formulaire de connexion */
+.login-form {
+    background: white;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 60px auto;
+}
+
+.login-form h2 {
+    margin-bottom: 24px;
+    color: #2d7a3e;
+    text-align: center;
+}
+
+.error-message {
+    color: #e53e3e;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Panneau Admin */
+.admin-panel {
+    display: grid;
+    gap: 24px;
+}
+
+/* Formulaire ajout */
+.add-actualite,
+.actualites-list {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.add-actualite h2,
+.actualites-list h2 {
+    color: #2d7a3e;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e8f5e9;
+}
+
+/* Groupes de formulaire */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2d7a3e;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Boutons */
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #2d7a3e;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1f5a2d;
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-delete {
+    background: #e53e3e;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.btn-delete:hover {
+    background: #c53030;
+}
+
+/* Messages de statut */
+.status-message {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Liste des actualités */
+.actualite-item {
+    padding: 16px;
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    background: #fafafa;
+}
+
+.actualite-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.actualite-type {
+    display: inline-block;
+    padding: 2px 10px;
+    background: #2d7a3e;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.actualite-date {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.actualite-item h4 {
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.actualite-item p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .admin-header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .admin-header h1 {
+        font-size: 1.1rem;
+    }
+}
