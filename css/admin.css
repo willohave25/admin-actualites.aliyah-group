@@ -240,3 +240,221 @@ body {
         font-size: 1.1rem;
     }
 }
+
+/* ========================================
+   ONGLETS
+   ======================================== */
+.admin-tabs {
+    display: flex;
+    gap: 4px;
+    background: #f0f0f0;
+    padding: 6px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #555;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.tab-btn:hover { background: white; }
+.tab-btn.active { background: white; color: #2d7a3e; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ========================================
+   SECTIONS ADMIN
+   ======================================== */
+.admin-section {
+    background: white;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+.admin-section h2 {
+    color: #2d7a3e;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8f5e9;
+}
+
+.section-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8f5e9;
+}
+
+.section-toolbar h2 { border: none; padding: 0; margin: 0; }
+
+.form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* ========================================
+   LISTE DES ÉLÉMENTS
+   ======================================== */
+.list-item {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #fafafa;
+    transition: border-color 0.2s;
+}
+
+.list-item.unread {
+    background: #fffde7;
+    border-color: #f9a825;
+}
+
+.item-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.item-date {
+    color: #888;
+    font-size: 0.82rem;
+    margin-left: auto;
+}
+
+.item-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.list-item h4 {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.list-item h4 a { color: #2d7a3e; }
+
+.list-item p {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+.item-message {
+    background: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-top: 8px !important;
+    font-style: italic;
+}
+
+.thumb {
+    max-width: 150px;
+    border-radius: 6px;
+    margin-top: 8px;
+    display: block;
+}
+
+/* ========================================
+   BADGES
+   ======================================== */
+.badge {
+    background: #e53e3e;
+    color: white;
+    border-radius: 12px;
+    padding: 1px 7px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    min-width: 20px;
+    text-align: center;
+}
+
+.badge-type {
+    display: inline-block;
+    padding: 2px 10px;
+    background: #2d7a3e;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.badge-new {
+    display: inline-block;
+    padding: 2px 10px;
+    background: #f9a825;
+    color: #333;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.badge-done {
+    display: inline-block;
+    padding: 2px 10px;
+    background: #4caf50;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+/* ========================================
+   BOUTONS SUPPLÉMENTAIRES
+   ======================================== */
+.btn-sm {
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #2d7a3e;
+    background: white;
+    color: #2d7a3e;
+    transition: all 0.15s;
+}
+
+.btn-sm:hover { background: #2d7a3e; color: white; }
+
+.btn-secondary {
+    background: white;
+    color: #2d7a3e;
+    border: 1px solid #2d7a3e;
+}
+
+/* Textes état */
+.loading-text, .empty-text { color: #888; text-align: center; padding: 24px; font-size: 0.9rem; }
+.error-text { color: #e53e3e; text-align: center; padding: 16px; font-size: 0.9rem; }
+
+/* Header */
+.admin-header-left { display: flex; flex-direction: column; }
+.admin-logo { font-size: 1.1rem; font-weight: 800; letter-spacing: 1px; }
+.admin-subtitle { font-size: 0.78rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
+
+@media (max-width: 600px) {
+    .form-row-2 { grid-template-columns: 1fr; }
+    .admin-tabs { flex-direction: column; }
+}
