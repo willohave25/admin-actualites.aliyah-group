@@ -1,1 +1,85 @@
-admin-actualites.aliyah-group
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Actualités - ALIYAH GROUP</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Gestion des Actualités - ALIYAH GROUP</h1>
+            <button id="logoutBtn" class="btn-logout">Déconnexion</button>
+        </header>
+
+        <!-- Formulaire de connexion -->
+        <div id="loginForm" class="login-form">
+            <h2>Connexion Admin</h2>
+            <form id="authForm">
+                <div class="form-group">
+                    <label for="passwordInput">Mot de passe</label>
+                    <input type="password" id="passwordInput" placeholder="Mot de passe" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+            </form>
+            <p class="error-message" id="errorMessage"></p>
+        </div>
+
+        <!-- Panneau Admin -->
+        <div id="adminPanel" class="admin-panel" style="display: none;">
+
+            <!-- Formulaire ajout actualité -->
+            <section class="add-actualite">
+                <h2>Ajouter une Actualité</h2>
+                <form id="actualiteForm">
+                    <div class="form-group">
+                        <label for="typeInput">Type</label>
+                        <select id="typeInput">
+                            <option value="Expédition">Expédition</option>
+                            <option value="Arrivage">Arrivage</option>
+                            <option value="Nouveauté">Nouveauté</option>
+                            <option value="Promotion">Promotion</option>
+                            <option value="Info">Information</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="titreInput">Titre *</label>
+                        <input type="text" id="titreInput" required placeholder="Ex: Arrivage container Paris-Abidjan">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descriptionInput">Description *</label>
+                        <textarea id="descriptionInput" required rows="4" placeholder="Décrivez l'actualité..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="photoInput">Photo (optionnel)</label>
+                        <input type="file" id="photoInput" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="videoInput">Vidéo (optionnel)</label>
+                        <input type="file" id="videoInput" accept="video/*">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Publier l'actualité</button>
+                </form>
+                <p class="status-message" id="statusMessage"></p>
+            </section>
+
+            <!-- Liste des actualités -->
+            <section class="actualites-list">
+                <h2>Actualités Publiées</h2>
+                <div id="actualitesList">
+                    <!-- Chargement dynamique -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
